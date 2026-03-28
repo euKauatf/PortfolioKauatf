@@ -12,6 +12,7 @@
 .header-title {
   line-height: 1;
 }
+/* ------------------------ */
 
 /* CORES */
 
@@ -36,6 +37,8 @@ body {
   background-color: #dab39e;
 }
 
+/* ------------------------ */
+
 /* BOTÕES */
 .btn {
   border-color: #4a3732;
@@ -53,3 +56,4 @@ body {
   color: #0e0e0e;
   background-color: #4a3732;
 }
+/* ------------------------ */
