@@ -17,7 +17,7 @@ function Navbar() {
             </h1>
           </a>
         </li>
-        <li className="ml-auto">
+        <li className="ml-auto font-medium">
           <NavLink
             to="/"
             className={({ isActive }) =>

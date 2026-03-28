@@ -46,14 +46,12 @@ body {
 }
 
 .btn:hover {
-  @media (hover: hover) {
-    background-color: #4a3732;
-    color: var(--color-white);
-  }
+  background-color: #4a3732;
+  color: #fff;
 }
 
-.btn-curriculo {
-  color: #0e0e0e;
-  background-color: #4a3732;
+.hover-scale-p:hover {
+  font-size: 1.02rem;
 }
+
 /* ------------------------ */

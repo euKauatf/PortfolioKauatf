@@ -1,0 +1,57 @@
+/* BOTÃO DE CURRÍCULO */
+.btn-curriculo,
+.btn-curriculo span {
+  color: #dab39e;
+  background-color: #4a3732;
+}
+
+.btn-curriculo:hover {
+  font-size: 1.02rem;
+}
+
+.btn-curriculo span {
+  display: inline-block;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.btn:hover span {
+  transform: translateX(4px);
+  color: #fff;
+}
+
+/* ------------------------ */
+
+/* NOME */
+.header-title-span {
+  font-size: 5rem;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.header-title-span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #452829;
+  z-index: -1;
+  transition: width 0.4s ease-in-out;
+  border-radius: 6px;
+}
+
+.header-title-span:hover {
+  color: #dab39e;
+}
+
+.header-title-span:hover::before {
+  width: 80%;
+}
+/* ------------------------ */

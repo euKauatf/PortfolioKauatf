@@ -1,5 +1,7 @@
-import video from "../../assets/videos/window.mp4";
 import "./main.css";
+import video from "../../assets/videos/window.mp4";
+import Linkedin from "../../assets/images/linkedin.svg?react";
+import Github from "../../assets/images/github.svg?react";
 
 function MainPage() {
   return (
@@ -8,7 +10,7 @@ function MainPage() {
         <div className="header-text flex-1">
           <h1 className="geist-mono text-xl mb-4 header-title">
             Olá, mundo! Eu sou
-            <span className="block font-extrabold color-special text-7xl">
+            <span className="header-title-span block font-extrabold color-special">
               Kauã Fernandes
             </span>
           </h1>
@@ -17,29 +19,31 @@ function MainPage() {
             Desenvolvedor Web, com foco em React e Typescript
           </p>
 
-          <div className="mt-10 flex gap-4 geist-mono">
+          <div className="mt-10 flex gap-12 geist-mono">
             <a
               href="/seu-curriculo.pdf"
               download
-              className="px-6 py-2 btn btn-curriculo hover:opacity-90 transition-all"
+              className="px-4 py-2 pt-2.5 btn btn-curriculo hover:opacity-90 transition-all"
             >
-              Currículo
+              Currículo <span className="transition">&gt;</span>
             </a>
 
             <a
               href="https://github.com/euKauatf"
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-2 border-2 rounded-sm btn transition-all"
+              className="px-4 py-2 group flex border-2 rounded-sm btn hover-scale-p transition-all"
             >
+              <Github className="w-4 h-4 fill-[#452829] group-hover:fill-white transition mr-2 mt-1" />
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/eukauatf/"
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-2 border-2 btn transition-all"
+              className="px-4 py-2 group flex border-2 btn hover-scale-p transition-all"
             >
+              <Linkedin className="w-4 h-4 fill-[#452829] group-hover:fill-white transition mr-2 mt-1" />
               LinkedIn
             </a>
           </div>
