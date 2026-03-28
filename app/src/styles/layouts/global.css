@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+@import "tailwindcss";
+
+* {
+  color: #1b1b1b;
+}
+
+html,
+body {
+  background-color: #e8d1c5;
+}
+.geist-mono {
+  font-family: "Geist Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.color-special {
+  color: #452829;
+}
+
+.bg-special {
+  background-color: #dab39e;
+}
+
+.header-title {
+  line-height: 1;
+}
+
+/* BOTÕES */
+.btn {
+  border-color: #4a3732;
+  border-radius: var(--radius-sm);
+}
+
+.btn:hover {
+  @media (hover: hover) {
+    background-color: #4a3732;
+    color: var(--color-white);
+  }
+}
+
+.btn-curriculo {
+  color: #0e0e0e;
+  background-color: #4a3732;
+}
