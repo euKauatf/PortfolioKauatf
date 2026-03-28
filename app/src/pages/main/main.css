@@ -55,3 +55,30 @@
   width: 80%;
 }
 /* ------------------------ */
+
+/* TYPEBAR */
+.typebar {
+  width: 7px;
+  height: 30px;
+  background-color: #452829;
+  margin-right: 10px;
+}
+/* animation: blink 1.75s steps(1, start) infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
+/* ------------------------ */
+
+/* BORDA DE IMAGEM */
+.border-img {
+  border: 4px solid #452829;
+  border-style: dashed;
+}
