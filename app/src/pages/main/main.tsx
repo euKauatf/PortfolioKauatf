@@ -1,7 +1,7 @@
 import video from "../../assets/videos/window.mp4";
 import "./main.css";
 
-function Main() {
+function MainPage() {
   return (
     <div className="container mx-auto items-center justify-center px-45 py-10 flex gap-16">
       <section className="header flex items-center justify-center">
@@ -60,4 +60,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default MainPage;
