@@ -68,36 +68,60 @@ function MainPage() {
 
       {/* SOBRE MIM */}
       <section className="about-me mt-35">
-        <h2 className="flex items-center text-3xl">
-          <span className="typebar"></span>
-          Que tal conhecer um pouco mais sobre mim?
-        </h2>
+        <div>
+          <h2 className="flex items-center text-3xl">
+            <span className="typebar"></span>
+            Que tal conhecer um pouco mais sobre mim?
+          </h2>
 
-        <div className="about-me-content mt-10 flex gap-16">
-          <div className="flex-2 text-md rounded-full border-img overflow-hidden">
-            <img src={pic1} alt="Foto de perfil" />
+          <div className="about-me-content mt-10 flex gap-16">
+            <div className="flex-2 text-md relative rounded-full border-img overflow-hidden">
+              <img src={pic1} alt="Foto de perfil" />
+            </div>
+            <div className="flex-3 geist text-lg">
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Olá! Eu sou o
+                Kauã e estou tentando a sorte nesse vasto mar dos
+                desenvolvedores. No entanto, o caso já é antigo: Desde que nasci
+                sou apaixonado por jogos e meu sonho era publicar o meu proprio!
+                Em 2019 eu tive meu primeiro contato com a programação, mas
+                acabei achando muito difícil e deixei ela de lado, até que, em
+                2023, ingressei no{" "}
+                <b className="font-semibold color-special-green">IFRJ</b> como
+                futuro{" "}
+                <b className="font-semibold color-special-green">
+                  técnico de informática
+                </b>
+                .
+              </p>
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O ensino médio
+                técnico foi algo muito importante pra mim, pois aquela chama
+                apagada voltou a queimar em meu peito. Desde então, fui traçando
+                meus gostos e, ano passado, decidi focar no desenvolvimento web.
+                Desenvolvi, durante meus últimos 2 períodos no técnico, um
+                website como Trabalho de Conclusão de Curso como primeira
+                experiência de fato, mas ainda era algo muito simples, tendo
+                servido como aprendizado nessa jornada.
+              </p>
+              <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hoje, aos 18
+                anos, venho buscando ampliar o meu conhecimento em{" "}
+                <b className="font-semibold color-special-green">
+                  React, Typescript, Javascript, CSS e (ainda sem início)
+                  Express.
+                </b>{" "}
+                Ingressei, no início de 2026,{" "}
+                <b className="font-semibold color-special-green">na UFF</b> e,
+                desde então,{" "}
+                <b className="font-semibold color-special-green">
+                  curso Ciência da Computação
+                </b>{" "}
+                lá. O que era um sonho bobo de criança, agora se torna uma
+                realidade alternativa e experiência única!
+              </p>
+            </div>
           </div>
-          <p className="flex-3 text-md">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo autem
-            quidem tempora, quis, totam eveniet eaque aut praesentium sunt,
-            natus odio veritatis provident minima esse cum molestias eius harum
-            quibusdam beatae consequatur? Quod ipsam soluta illo sint a eos
-            minus placeat facilis impedit deleniti nihil molestiae ratione
-            adipisci mollitia provident, officia architecto quam corporis
-            cupiditate doloremque maxime repellat nesciunt commodi sed! Aperiam
-            sunt deserunt illo voluptas. Officia tempora exercitationem, optio
-            tenetur quisquam soluta odio, dicta quo quae, vitae quis similique
-            est ipsa id facilis. Quas recusandae dolores sit facere perspiciatis
-            delectus officiis nesciunt, quos voluptatem mollitia! Quibusdam
-            repellendus optio, nemo officia sed, harum praesentium quos fugit
-            perspiciatis beatae iste et eveniet quasi ipsa quod aliquid.
-            Officiis aliquid, doloribus rerum eveniet reiciendis aut magnam
-            accusamus veniam laborum itaque sequi sunt eligendi? Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Error, iusto. Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Dolor, iste.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, rem.
-            Lorem ipsum dolor sit.
-          </p>
         </div>
       </section>
     </div>
