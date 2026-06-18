@@ -4,7 +4,7 @@ import "./navbar.css";
 
 function Navbar() {
   return (
-    <div className="bg-special h-14 w-full shadow-md shadow-red-200">
+    <div className="bg-special h-14 w-full shadow-md shadow-amber-900/30">
       <ul className="flex space-x-4 geist-mono items-center h-full px-4 text-lg font-medium mx-4">
         <li className="flex justify-start">
           <a href="#">

@@ -76,7 +76,11 @@ function MainPage() {
 
           <div className="about-me-content mt-10 flex gap-16">
             <div className="flex-2 text-md relative rounded-full border-img overflow-hidden">
-              <img src={pic1} alt="Foto de perfil" />
+              <img
+                className="w-full h-full object-cover"
+                src={pic1}
+                alt="Foto de perfil"
+              />
             </div>
             <div className="flex-3 geist text-lg">
               <p>
