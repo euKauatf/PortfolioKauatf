@@ -121,3 +121,20 @@
     url("../../assets/images/aboutmebg.jpg");
   background-size: 300px; /* padrão repetido
 } */
+
+body {
+  background-color: #f6e4d3;
+  position: relative; /* necessário pro z-index do ::before funcionar */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/src/assets/images/kraft-texture.webp");
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+}
