@@ -1,7 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap");
 @import "tailwindcss";
 
 /* TEXTO */
+.tangerine-bold {
+  font-family: "Tangerine", cursive;
+  font-weight: 1000;
+  font-style: normal;
+}
+
 .geist-mono {
   font-family: "Geist Mono", monospace;
   font-optical-sizing: auto;
@@ -29,7 +36,8 @@
 
 html,
 body {
-  background-color: #e8d1c5;
+  background-color: #f6e4d3;
+  overflow-x: hidden;
 }
 
 .color-special {

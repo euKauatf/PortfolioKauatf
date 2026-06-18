@@ -76,22 +76,56 @@
 }
 /* ------------------------ */
 
-/* BORDA DA IMAGEM (Ruim. Corrigir posteriormente) */
+/* BORDA DA IMAGEM (Apenas o círculo perfeito por enquanto) */
+.border-img {
+  width: 420px; /* Define o tamanho da foto (pode aumentar ou diminuir) */
+  aspect-ratio: 1 / 1; /* Força a div a ser sempre um quadrado perfeito */
+  flex-shrink: 0; /*Impede o texto de esmagar a imagem */
+}
+
+.border-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta a imagem sem esticar o rosto */
+  border-radius: 50%; /* Deixa redondinha */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Dá uma sombrinha de leve */
+}
 
 /* ------------------------ */
 
 /* ABOUT ME */
-/* .about-me {
-  background:
-    linear-gradient(rgba(232, 209, 197, 0.7), rgba(232, 209, 197, 0.7)),
-    url("../../assets/images/aboutmebg.jpg");
-  background-size: 300px; /* padrão repetido
-} */
 
+.about-me {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+
+  /* O degradê agora acontece nos primeiros 50px, criando o efeito esfumaçado */
+  background: linear-gradient(
+    to bottom,
+    transparent 4%,
+    rgba(0, 0, 0, 0.04) 50px,
+    rgba(0, 0, 0, 0.04) calc(100% - 50px),
+    transparent 100% /* Volta a ficar transparente nos últimos 50px */
+  );
+
+  padding-top: 80px;
+  padding-bottom: 100px;
+  margin-top: 60px;
+}
+
+.about-me-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ------------------------ */
+
+/* TEXTURA DO BODY */
 body {
   background-color: #f6e4d3;
   position: relative;
-  /* Essa linha abaixo resolve o problema de z-index: */
   z-index: 0;
 }
 
@@ -99,11 +133,205 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* Caminho relativo para o Vite entender corretamente: */
   background-image: url("../../assets/images/kraft-texture.webp");
   background-repeat: repeat;
   background-blend-mode: multiply;
-  opacity: 0.125;
+  opacity: 0; /* Tirando porque nao estou gostando. */
   pointer-events: none;
   z-index: -1;
+}
+
+/* ------------------------ */
+
+/* ========================================= */
+/* ESTILOS DO MURAL DE AVISOS */
+/* ========================================= */
+
+/* A Placa de Madeira (Fundo do Mural) */
+.mural-board {
+  background-color: #d29c73;
+  /* Efeito de ripas de madeira sutis */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 36px,
+    #c48b5e 36px,
+    #c48b5e 40px
+  );
+  /* Borda grossa estilo cartoon/pixel */
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.2),
+    0px 0px 0px 4px #2c1a12;
+  border-radius: 16px;
+  position: relative;
+  padding: 32px; /* Espaço entre a borda da madeira e os papéis */
+}
+
+/* Os "Clipes/Pregos" que seguram a placa (Baseado no seu desenho) */
+.mural-board::before,
+.mural-board::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  width: 32px;
+  height: 40px;
+  background-color: #e0e0e0;
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 0px 0px rgba(255, 255, 255, 0.5),
+    0px 0px 0px 4px #2c1a12;
+  border-radius: 6px;
+}
+
+.mural-board::before {
+  left: 15%; /* Posição do clipe esquerdo */
+}
+
+.mural-board::after {
+  right: 15%; /* Posição do clipe direito */
+}
+
+/* Os Cartões Internos (Folhas de papel coladas no mural) */
+.mural-card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Fundo de papel meio translúcido */
+  backdrop-filter: blur(4px);
+  border: 2px dashed rgba(44, 26, 18, 0.4); /* Borda tracejada charmosa */
+  border-radius: 12px;
+  padding: 32px;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.mural-card:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.01);
+}
+
+/* Etiquetas das Stacks */
+/* 1. Garante que a transição de crescer/encolher seja suave */
+.tag-stack {
+  /* ... mantenha suas regras existentes aqui ... */
+  transition: all 0.3s ease;
+  cursor: default; /* Mostra a setinha normal, ou troque para 'pointer' se forem links futuramente */
+}
+
+/* 2. Quando o mouse entra no carrossel, diminui a opacidade e o tamanho de TODAS as tags */
+.carousel-track:hover .tag-stack {
+  opacity: 0.4;
+  transform: scale(0.95);
+}
+
+/* 3. A tag que está EXATAMENTE sob o mouse ganha destaque total */
+.carousel-track .tag-stack:hover {
+  opacity: 1;
+  transform: scale(1.15); /* Faz a tag crescer 15% */
+  background-color: #1a0f0a; /* Fica ainda mais escura para destacar */
+  color: #fff; /* Texto branco para dar contraste */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra maior para dar sensação de flutuação */
+  z-index: 10; /* Garante que ela passe por cima das tags vizinhas */
+}
+
+/* ========================================= */
+/* CARROSSEL INFINITO DAS STACKS             */
+/* ========================================= */
+
+/* Máscara para dar o efeito de fade/esmaecimento nas laterais */
+.mask-carousel {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.carousel-track {
+  /* O tempo '15s' controla a velocidade. Aumente para ficar mais lento */
+  animation: scroll-carousel 15s linear infinite;
+}
+
+/* Pausa a animação quando o usuário passa o mouse por cima
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}*/
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Como temos 2 grupos idênticos, movemos exatamente 50% para um loop perfeito */
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================= */
+/* SESSÃO DE PROJETOS                        */
+/* ========================================= */
+
+/* O cartão do projeto */
+.project-card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Fundo de papel claro e translúcido */
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(44, 26, 18, 0.1);
+  border-radius: 12px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Efeito de levitar ao passar o mouse */
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+  border-color: rgba(44, 26, 18, 0.3); /* Borda escurece um pouco */
+}
+
+/* Espaço reservado para a imagem (enquanto não tem foto) */
+.project-img-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #dab39e;
+
+  /* Cria uma estampa diagonal listrada no fundo, lembrando fitas de construção/aviso */
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.04) 10px,
+    rgba(0, 0, 0, 0.04) 20px
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgba(44, 26, 18, 0.1);
+}
+
+/* Quando você colocar imagens reais, use esta classe no <img> dentro do placeholder */
+.project-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
