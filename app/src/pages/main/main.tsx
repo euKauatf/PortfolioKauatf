@@ -69,7 +69,7 @@ function MainPage() {
         </section>
 
         {/* SOBRE MIM (ESTILO MURAL DE AVISOS) */}
-        <section className="about-me mt-35">
+        <section className="other-bg mt-35">
           <div className="about-me-content">
             <h2 className="flex items-center text-3xl mb-16">
               <span className="typebar"></span>
@@ -168,7 +168,7 @@ function MainPage() {
         </section>
 
         {/* MEUS PROJETOS */}
-        <section className="projects mt-35">
+        <section className="projects mt-20">
           <div className="max-w-5xl mx-auto px-4">
             <h2 className="flex items-center text-3xl mb-12">
               <span className="typebar"></span>
@@ -290,8 +290,9 @@ function MainPage() {
           </div>
         </section>
         {/* SESSÃO DE CONTATO */}
-        <section className="contact mt-35 mb-20 flex flex-col items-center justify-center text-center">
-          <div className="max-w-2xl px-4">
+        <section className="other-bg contact mt-35 flex flex-col items-center justify-center text-center">
+          {/* max-w-xl no lugar de 2xl deixa o parágrafo menos esticado e mais elegante */}
+          <div className="max-w-xl px-4">
             <h2 className="text-4xl font-bold text-[#2c1a12] mb-6">
               Vamos trabalhar juntos?
             </h2>
@@ -302,10 +303,12 @@ function MainPage() {
               caixa de entrada está aberta!
             </p>
             <a
-              href="mailto:seu-email@exemplo.com"
-              className="inline-block px-8 py-4 bg-[#4a3732] text-[#dab39e] font-bold rounded-md hover:bg-[#2c1a12] hover:-translate-y-1 transition-all duration-300 shadow-md"
+              href="/contato"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#4a3732] text-[#dab39e] font-bold rounded-md hover:bg-[#2c1a12] hover:-translate-y-1 transition-all duration-300 shadow-md"
             >
-              Entrar em Contato ✉️
+              Entrar em Contato
+              {/* Seta em texto que não quebra como emojis */}
+              <span className="text-xl leading-none">&rarr;</span>
             </a>
           </div>
         </section>

@@ -1,0 +1,12 @@
+.footer-class a:hover {
+  color: #f6e4d3;
+}
+
+.footer-class p,
+.footer-class a {
+  color: #dab39e;
+}
+
+.footer-class b {
+  color: #f6e4d3;
+}

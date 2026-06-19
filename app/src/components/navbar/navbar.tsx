@@ -7,7 +7,7 @@ function Navbar() {
     <div className="bg-special h-14 w-full shadow-md shadow-amber-900/30">
       <ul className="flex space-x-4 geist-mono items-center h-full px-4 text-lg font-medium mx-4">
         <li className="flex justify-start">
-          <a href="#">
+          <a href="/">
             <h1 className="flex items-center text-4xl color-special font-bold">
               <span className="color-special-green">/</span>
               euKauatf
@@ -17,6 +17,7 @@ function Navbar() {
             </h1>
           </a>
         </li>
+        {/* Profissional */}
         <li className="ml-auto font-medium">
           <NavLink
             to="/"
@@ -27,6 +28,7 @@ function Navbar() {
             Profissional
           </NavLink>
         </li>
+        {/* Pessoal */}
         <li className="ml-4">
           <NavLink
             to="/pessoal"
@@ -36,6 +38,18 @@ function Navbar() {
             }
           >
             Pessoal
+          </NavLink>
+        </li>
+        {/* Contato */}
+        <li className="ml-4">
+          <NavLink
+            to="/contato"
+            end
+            className={({ isActive }) =>
+              isActive ? "link liHover" : "liHover"
+            }
+          >
+            Contato
           </NavLink>
         </li>
       </ul>

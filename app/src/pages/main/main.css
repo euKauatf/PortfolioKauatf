@@ -1,3 +1,7 @@
+p {
+  color: #1b1b1b;
+}
+
 /* BOTÃO DE CURRÍCULO */
 .btn-curriculo,
 .btn-curriculo span {
@@ -96,22 +100,21 @@
 
 /* ABOUT ME */
 
-.about-me {
+.other-bg {
   width: 100vw;
   margin-left: calc(50% - 50vw);
 
-  /* O degradê agora acontece nos primeiros 50px, criando o efeito esfumaçado */
   background: linear-gradient(
     to bottom,
-    transparent 4%,
-    rgba(0, 0, 0, 0.04) 50px,
-    rgba(0, 0, 0, 0.04) calc(100% - 50px),
-    transparent 100% /* Volta a ficar transparente nos últimos 50px */
+    transparent 0%,
+    rgba(104, 138, 115, 0.18) 80px,
+    rgba(104, 138, 115, 0.18) calc(100% - 80px),
+    transparent 100%
   );
 
   padding-top: 80px;
-  padding-bottom: 100px;
   margin-top: 60px;
+  padding-bottom: 100px;
 }
 
 .about-me-content {

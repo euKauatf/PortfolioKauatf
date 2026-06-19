@@ -1,0 +1,89 @@
+/* ========================================= */
+/* CARTÃO COMANDA (Formulário)               */
+/* ========================================= */
+
+.comanda-wrapper {
+  /* O drop-shadow acompanha o corte feito pelo clip-path perfeitamente! */
+  filter: drop-shadow(8px 8px 0px rgba(44, 26, 18, 0.15));
+  width: 100%;
+  max-width: 42rem;
+}
+
+.comanda-card {
+  background-color: #fdf8f5;
+  position: relative;
+  border-radius: 12px;
+  /* Corta exatamente 40px do canto inferior direito */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 40px),
+    calc(100% - 40px) 100%,
+    0 100%
+  );
+}
+
+/* Orelhinha dobrada do papel */
+.comanda-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #e6d3c3;
+  border-top-left-radius: 8px;
+  box-shadow: -4px -4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Linhas com Ritmo Vertical de 40px */
+.comanda-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 39px,
+    rgba(74, 55, 50, 0.2) 39px,
+    rgba(74, 55, 50, 0.2) 40px
+  );
+  /* Trava o tamanho do fundo em blocos exatos de 40px */
+  background-size: 100% 40px;
+  /* Empurra a linha um pouquinho para baixo para o texto "sentar" nela */
+  background-position: 0 38px;
+}
+
+/* ========================================= */
+/* CORREÇÃO DO AUTOFILL DO NAVEGADOR         */
+/* ========================================= */
+
+/* Remove o fundo azul padrão quando o navegador preenche os dados sozinho */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  /* Engana o navegador atrasando a mudança de cor em 5000 segundos */
+  transition: background-color 5000s ease-in-out 0s;
+
+  /* Garante que a cor da fonte continue marrom escura e não mude pro padrão */
+  -webkit-text-fill-color: #2c1a12 !important;
+
+  /* Mantém a fonte com o peso correto ao preencher */
+  font-weight: 500;
+}
+
+/* Custom Scrollbar para a Comanda */
+.comanda-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.comanda-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.comanda-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(74, 55, 50, 0.2);
+  border-radius: 10px;
+}
+.comanda-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(74, 55, 50, 0.5);
+}
