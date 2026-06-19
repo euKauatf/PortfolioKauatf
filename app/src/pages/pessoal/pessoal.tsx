@@ -1,9 +1,5 @@
 function PessoalPage() {
-  return (
-    <div>
-      <h1>Página Pessoal</h1>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default PessoalPage;

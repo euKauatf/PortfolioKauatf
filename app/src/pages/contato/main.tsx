@@ -3,8 +3,14 @@ import "./main.css";
 import Footer from "../../components/footer/footer";
 
 function Contato() {
+  // Estado para o Pop-up de cópia do e-mail
   const [copied, setCopied] = useState(false);
 
+  // Novos estados para o controle de envio do formulário
+  const [isSending, setIsSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+
+  // Estados para os dados do formulário e para os erros
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,7 +19,7 @@ function Contato() {
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
 
   // ---------------------------------------------------------
-  // NOVA LÓGICA DE SCROLL PARA O TEXTAREA
+  // LÓGICA DE SCROLL PARA O TEXTAREA
   // ---------------------------------------------------------
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [scrollInfo, setScrollInfo] = useState({
@@ -26,13 +32,11 @@ function Contato() {
       const { scrollTop, scrollHeight, clientHeight } = textareaRef.current;
       setScrollInfo({
         canScrollUp: scrollTop > 0,
-        // Usamos Math.ceil para evitar bugs de arredondamento em telas com zoom
         canScrollDown: Math.ceil(scrollTop + clientHeight) < scrollHeight,
       });
     }
   };
 
-  // Atualiza os indicativos sempre que a mensagem mudar de tamanho
   useEffect(() => {
     handleScroll();
   }, [formData.message]);
@@ -59,7 +63,8 @@ function Contato() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Função atualizada para enviar os dados via Fetch API (sem redirecionar)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newErrors = { name: "", email: "", message: "" };
@@ -85,8 +90,37 @@ function Contato() {
 
     setErrors(newErrors);
 
+    // Se a validação passar, executa o envio nos bastidores
     if (isValid) {
-      e.currentTarget.submit();
+      setIsSending(true); // Muda o estado do botão para "Enviando..."
+
+      try {
+        const response = await fetch("https://formspree.io/f/xkoadjlw", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          // Sucesso! Limpa o formulário e mostra o pop-up
+          setFormData({ name: "", email: "", message: "" });
+          setEmailSent(true);
+
+          setTimeout(() => {
+            setEmailSent(false);
+          }, 4000);
+        } else {
+          alert("Ops! Ocorreu um problema ao enviar. Tente novamente.");
+        }
+      } catch (error) {
+        alert("Erro de conexão. Verifique sua internet e tente novamente.");
+        console.log("Erro no envio do formulário:", error);
+      } finally {
+        setIsSending(false); // Restaura o botão
+      }
     }
   };
 
@@ -103,15 +137,13 @@ function Contato() {
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-32 h-10 bg-[rgba(210,156,115,0.8)] -rotate-3 shadow-sm backdrop-blur-sm z-20"></div>
 
             <div className="w-full comanda-card pt-10 pb-10 px-8 md:px-12 comanda-lines">
+              {/* O action foi removido daqui pois o fetch cuida disso no handleSubmit */}
               <form
-                action="https://formspree.io/f/xkoadjlw"
-                method="POST"
                 className="flex flex-col gap-0 relative z-10"
                 noValidate
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col md:flex-row md:h-20">
-                  {/* Input Nome */}
                   <div className="flex-1 flex flex-col h-20">
                     <label
                       className={`h-10 flex items-end pb-1 font-bold text-xs geist-mono uppercase tracking-widest pl-1 transition-colors ${errors.name ? "text-[#c63031]" : "text-[#4a3732]"}`}
@@ -133,7 +165,6 @@ function Contato() {
                     />
                   </div>
 
-                  {/* Input Email */}
                   <div className="flex-1 flex flex-col h-20 md:pl-6">
                     <label
                       className={`h-10 flex items-end pb-1 font-bold text-xs geist-mono uppercase tracking-widest pl-1 transition-colors ${errors.email ? "text-[#c63031]" : "text-[#4a3732]"}`}
@@ -158,7 +189,6 @@ function Contato() {
 
                 <div className="h-10 hidden md:block"></div>
 
-                {/* Input Mensagem */}
                 <div className="flex flex-col w-full relative">
                   <label
                     className={`h-10 flex items-end pb-1 font-bold text-xs geist-mono uppercase tracking-widest pl-1 transition-colors ${errors.message ? "text-[#c63031]" : "text-[#4a3732]"}`}
@@ -171,16 +201,13 @@ function Contato() {
                     )}
                   </label>
 
-                  {/* Container relativo para posicionar os indicativos visuais */}
                   <div className="relative w-full">
-                    {/* Indicativo de que tem texto pra CIMA */}
                     {scrollInfo.canScrollUp && (
                       <div className="absolute top-1 right-2 text-[#a36a42] text-xs font-bold geist-mono animate-bounce z-10 pointer-events-none bg-[#fdf8f5]/90 px-2 rounded-full shadow-sm">
                         &uarr; Rolar
                       </div>
                     )}
 
-                    {/* Textarea com a classe customizada e onScroll ativado */}
                     <textarea
                       ref={textareaRef}
                       name="message"
@@ -191,7 +218,6 @@ function Contato() {
                       className={`h-40 w-full leading-10 bg-transparent border-none font-medium text-lg focus:outline-none focus:font-bold focus:text-xl transition-all duration-300 resize-none overflow-y-auto comanda-scrollbar pr-2 ${errors.message ? "text-[#c63031] placeholder-[#c63031]/50" : "text-[#4a3732] placeholder-[#4a3732]/40 focus:text-[#1a0f0a]"}`}
                     ></textarea>
 
-                    {/* Indicativo de que tem texto pra BAIXO */}
                     {scrollInfo.canScrollDown && (
                       <div className="absolute bottom-1 right-2 text-[#a36a42] text-xs font-bold geist-mono animate-bounce z-10 pointer-events-none bg-[#fdf8f5]/90 px-2 rounded-full shadow-sm">
                         &darr; Mais
@@ -202,13 +228,13 @@ function Contato() {
 
                 <div className="h-10"></div>
 
-                {/* Botões */}
                 <div className="flex flex-col sm:flex-row gap-4 mt-2 bg-[#fdf8f5]">
                   <button
                     type="submit"
-                    className="flex-1 py-4 bg-[#4a3732] text-[#f6e4d3] font-bold text-lg hover:bg-[#2c1a12] transition-colors shadow-[4px_4px_0px_#a36a42] hover:shadow-[0px_0px_0px_#a36a42] hover:translate-y-1 hover:translate-x-1"
+                    disabled={isSending}
+                    className={`flex-1 py-4 bg-[#4a3732] text-[#f6e4d3] font-bold text-lg hover:bg-[#2c1a12] transition-all duration-300 shadow-[4px_4px_0px_#a36a42] hover:shadow-[0px_0px_0px_#a36a42] hover:translate-y-1 hover:translate-x-1 ${isSending ? "opacity-70 cursor-not-allowed" : ""}`}
                   >
-                    Fazer Pedido &rarr;
+                    {isSending ? "Enviando..." : "Fazer Pedido \u2192"}
                   </button>
 
                   <button
@@ -246,7 +272,7 @@ function Contato() {
           </div>
         </div>
 
-        {/* POPUP DE NOTIFICAÇÃO */}
+        {/* POPUP DE NOTIFICAÇÃO - Cópia */}
         <div
           className={`fixed bottom-6 right-6 bg-[#2c1a12] text-[#f6e4d3] px-6 py-4 shadow-[4px_4px_0px_#d29c73] font-bold flex items-center gap-3 z-50 transition-all duration-500 ease-in-out ${
             copied
@@ -268,6 +294,31 @@ function Contato() {
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
           Email copiado com sucesso!
+        </div>
+
+        {/* POPUP DE NOTIFICAÇÃO - Envio do Form */}
+        <div
+          className={`fixed bottom-6 right-6 bg-[#2c1a12] text-[#f6e4d3] px-6 py-4 shadow-[4px_4px_0px_#d29c73] font-bold flex items-center gap-3 z-50 transition-all duration-500 ease-in-out ${
+            emailSent
+              ? "translate-y-0 opacity-100 visible"
+              : "translate-y-10 opacity-0 invisible"
+          }`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#27c93f"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          Pedido feito com sucesso!
         </div>
       </section>
       <Footer />

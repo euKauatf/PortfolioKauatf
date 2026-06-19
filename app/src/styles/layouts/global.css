@@ -66,3 +66,32 @@ body {
 }
 
 /* ------------------------ */
+
+/* ========================================= */
+/* BARRA DE ROLAGEM GLOBAL DO SITE           */
+/* ========================================= */
+
+/* Largura total da barra */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* O "trilho" (fundo por onde a barra corre) */
+::-webkit-scrollbar-track {
+  background: #fdf8f5; /* Mesma cor do fundo do seu site */
+}
+
+/* O "polegar" (a barrinha que você arrasta) */
+::-webkit-scrollbar-thumb {
+  background-color: #d29c73; /* O nosso laranja/bege escuro */
+  border-radius: 20px; /* Deixa as pontas bem redondinhas */
+
+  /* O truque de mestre: uma borda da mesma cor do fundo para 
+     fazer a barra parecer mais fina e "flutuar" no meio do trilho */
+  border: 3px solid #fdf8f5;
+}
+
+/* Efeito ao passar o mouse ou arrastar */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a36a42; /* Fica um tom mais escuro e quente */
+}
