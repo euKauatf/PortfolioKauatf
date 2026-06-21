@@ -7,6 +7,7 @@ import Github from "../../assets/images/github.svg?react";
 import pic1 from "../../assets/images/pic1.jpeg";
 import Footer from "../../components/footer/footer";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 function MainPage() {
   // Estado para controlar a caixa marrom no clique (celular e PC)
@@ -48,13 +49,12 @@ function MainPage() {
 
             {/* BOTÕES: Ajustados para gap-4 homogêneo para consertar o espaçamento no PC */}
             <div className="mt-8 flex flex-col md:flex-row gap-4 w-full justify-center md:justify-start">
-              <a
-                href="/seu-curriculo.pdf"
-                download
+              <NavLink
+                to="/curriculo"
                 className="px-6 py-4 md:px-6 md:py-3 pt-4 md:pt-3.5 btn btn-curriculo hover:opacity-90 transition-all flex justify-center items-center font-bold text-lg md:text-base"
               >
                 Currículo <span className="transition ml-2">&gt;</span>
-              </a>
+              </NavLink>
 
               <div className="flex gap-4 w-full md:w-auto">
                 <a
@@ -316,13 +316,13 @@ function MainPage() {
               mente, uma vaga na sua equipe ou apenas quer dar um oi, minha
               caixa de entrada está aberta!
             </p>
-            <a
-              href="/contato"
+            <NavLink
+              to="/contato"
               className="inline-flex items-center justify-center w-full sm:w-auto gap-3 px-8 py-5 bg-[#4a3732] text-[#dab39e] text-xl font-bold rounded-md hover:bg-[#2c1a12] hover:-translate-y-1 transition-all duration-300 shadow-md"
             >
               Entrar em Contato
               <span className="text-2xl leading-none">&rarr;</span>
-            </a>
+            </NavLink>
           </div>
         </section>
       </div>
