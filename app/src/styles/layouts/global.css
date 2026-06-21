@@ -159,3 +159,94 @@ body {
     opacity: 1;
   }
 }
+
+/* ========================================= */
+/* ANIMAÇÃO DA PLACA GIRATÓRIA (MADEIRA)     */
+/* ========================================= */
+
+.sign-container {
+  perspective: 1000px;
+  width: 260px;
+  height: 120px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  /* Remove o flash azul de toque no celular */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* A cordinha */
+.sign-string {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 40px;
+  border: 4px solid #4a3732;
+  border-bottom: none;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  z-index: -1;
+}
+
+/* O motor do giro 3D */
+.sign-flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.sign-flipper.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Os lados da placa com textura de madeira */
+.sign-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #2c1a12;
+  border-radius: 12px;
+
+  /* Textura de Madeira */
+  background-color: #d29c73;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 24px,
+    #c48b5e 24px,
+    #c48b5e 28px
+  );
+
+  /* Efeito de 3D/Sombra na madeira */
+  box-shadow:
+    inset -4px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    inset 4px 4px 0px 0px rgba(255, 255, 255, 0.3),
+    0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Efeito entalhado nas letras */
+.sign-face span {
+  text-shadow:
+    1px 1px 0px rgba(255, 255, 255, 0.2),
+    -1px -1px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* LADO FRENTE (Fechado) */
+.sign-front {
+  color: #6e2c2c;
+}
+
+/* LADO VERSO (Aberto) */
+.sign-back {
+  color: #36592a;
+  transform: rotateY(180deg);
+}
