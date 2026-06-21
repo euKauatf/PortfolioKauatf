@@ -126,7 +126,7 @@ function Contato() {
 
   return (
     <>
-      <section className="contact mt-15 mb-24 flex flex-col items-center justify-center relative">
+      <section className="contact other-bg mb-24 flex flex-col items-center justify-center relative">
         <div className="max-w-3xl w-full px-4 flex flex-col items-center">
           <h2 className="text-4xl font-bold text-[#2c1a12] mb-16 flex items-center justify-center">
             <span className="typebar"></span>

@@ -95,3 +95,67 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #a36a42; /* Fica um tom mais escuro e quente */
 }
+
+/* ========================================= */
+/* ABOUT ME & CONTATO (Textura Tijolinhos)   */
+/* ========================================= */
+
+.other-bg {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  /*
+  padding-top: 80px;
+  margin-top: 60px;
+  */
+  padding-top: 80px;
+  padding-bottom: 100px;
+  position: relative;
+
+  /* IMPORTANTE: Remove qualquer fundo verde antigo e cria um contexto para a textura */
+  background: transparent;
+  z-index: 1;
+}
+
+/* O pseudo-elemento que guarda a textura */
+.other-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  /* SVG de tijolinhos 3D fofos: Cantos arredondados e sombrinha de leve */
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Sombras --%3E%3Crect x='4' y='6' width='32' height='14' rx='4' fill='%23d29c73' fill-opacity='0.15'/%3E%3Crect x='44' y='6' width='32' height='14' rx='4' fill='%23d29c73' fill-opacity='0.15'/%3E%3Crect x='-16' y='26' width='32' height='14' rx='4' fill='%23d29c73' fill-opacity='0.15'/%3E%3Crect x='24' y='26' width='32' height='14' rx='4' fill='%23d29c73' fill-opacity='0.15'/%3E%3Crect x='64' y='26' width='32' height='14' rx='4' fill='%23d29c73' fill-opacity='0.15'/%3E%3C!-- Tijolos --%3E%3Crect x='4' y='4' width='32' height='14' rx='4' fill='%23fdf8f5' fill-opacity='0.6'/%3E%3Crect x='44' y='4' width='32' height='14' rx='4' fill='%23fdf8f5' fill-opacity='0.6'/%3E%3Crect x='-16' y='24' width='32' height='14' rx='4' fill='%23fdf8f5' fill-opacity='0.6'/%3E%3Crect x='24' y='24' width='32' height='14' rx='4' fill='%23fdf8f5' fill-opacity='0.6'/%3E%3Crect x='64' y='24' width='32' height='14' rx='4' fill='%23fdf8f5' fill-opacity='0.6'/%3E%3C/svg%3E");
+
+  /* Deixei o background-size um pouco maior para a parede não ficar muito lotada visualmente */
+  background-size: 100px 50px;
+
+  /* Máscara que cria o degradê invisível no topo e no rodapé */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 80px,
+    black calc(100% - 80px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 80px,
+    black calc(100% - 80px),
+    transparent 100%
+  );
+
+  /* Animação suave de Fade-In */
+  opacity: 0;
+  animation: fadeInTexture 2s ease-in-out forwards;
+}
+
+@keyframes fadeInTexture {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    /* Mudei para 1 porque a própria cor do SVG já tem transparência (fill-opacity). Fica perfeito! */
+    opacity: 1;
+  }
+}

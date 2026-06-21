@@ -31,3 +31,39 @@
   }
 }
 /* ------------------------ */
+
+/* ========================== */
+/* ANIMAÇÃO DOS LINKS NAVBAR  */
+/* ========================== */
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* A barra invisível por padrão */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 50%;
+  background-color: #5d8a4e; /* Cor da folha no hover */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover: a barra cresce do centro para as bordas */
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Estado Ativo: Barra preta/marrom sempre fixa */
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+  background-color: #2c1a12;
+}
