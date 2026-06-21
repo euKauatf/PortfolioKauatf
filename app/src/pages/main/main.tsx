@@ -206,17 +206,17 @@ function MainPage() {
               <div className="project-card flex flex-col group">
                 <div className="project-img-placeholder overflow-hidden">
                   <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    Icone
+                    N/A
                   </span>
                 </div>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
-                    Nome do Projeto 1
+                    Projeto 1
                   </h3>
                   <p className="geist text-[#4a3732] mb-6 flex-1 text-lg md:text-sm lg:text-base leading-relaxed">
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    No momento, o projeto ainda não está disponível! Fique por
+                    dentro das atualizações que já já irá sair, fresquinho do
+                    forno!
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 mb-8 md:mb-6">
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
@@ -239,17 +239,17 @@ function MainPage() {
               <div className="project-card flex flex-col group">
                 <div className="project-img-placeholder overflow-hidden">
                   <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    Icone
+                    N/A
                   </span>
                 </div>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
-                    Nome do Projeto 2
+                    Projeto 2
                   </h3>
                   <p className="geist text-[#4a3732] mb-6 flex-1 text-lg md:text-sm lg:text-base leading-relaxed">
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    No momento, o projeto ainda não está disponível! Fique por
+                    dentro das atualizações que já já irá sair, fresquinho do
+                    forno!
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 mb-8 md:mb-6">
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
@@ -272,17 +272,17 @@ function MainPage() {
               <div className="project-card flex flex-col group">
                 <div className="project-img-placeholder overflow-hidden">
                   <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    Icone
+                    N/A
                   </span>
                 </div>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
-                    Nome do Projeto 3
+                    Projeto 3
                   </h3>
                   <p className="geist text-[#4a3732] mb-6 flex-1 text-lg md:text-sm lg:text-base leading-relaxed">
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    No momento, o projeto ainda não está disponível! Fique por
+                    dentro das atualizações que já já irá sair, fresquinho do
+                    forno!
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 mb-8 md:mb-6">
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">

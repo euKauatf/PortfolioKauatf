@@ -41,7 +41,7 @@ export default function Intro({ onComplete }: { onComplete: () => void }) {
   return (
     // Overlay escuro com fundo embaçado (backdrop-blur)
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1a0f0a]/80 backdrop-blur-sm transition-opacity duration-700 ${
+      className={`fixed inset-0 z-9999 flex flex-col items-center justify-center bg-[#1a0f0a]/80 backdrop-blur-sm transition-opacity duration-700 ${
         isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
