@@ -10,9 +10,11 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 function MainPage() {
+  const [introFinished, setIntroFinished] = useState(() => {
+    return sessionStorage.getItem("introSeen") === "true";
+  });
   // Estado para controlar a caixa marrom no clique (celular e PC)
   const [isNameActive, setIsNameActive] = useState(false);
-  const [introFinished, setIntroFinished] = useState(false);
 
   useEffect(() => {
     if (!introFinished) {
@@ -24,7 +26,14 @@ function MainPage() {
 
   return (
     <>
-      {!introFinished && <Intro onComplete={() => setIntroFinished(true)} />}
+      {!introFinished && (
+        <Intro
+          onComplete={() => {
+            sessionStorage.setItem("introSeen", "true");
+            setIntroFinished(true);
+          }}
+        />
+      )}
 
       <div className="container geist-mono mx-auto items-center justify-center px-6 md:px-16 lg:px-45 pt-2 pb-10 md:py-10 gap-16">
         {/* HEADER */}

@@ -1,33 +1,34 @@
 import { useState, useEffect } from "react";
+import "../../pages/main/main.css";
 
-export default function Intro({ onComplete }: { onComplete: () => void }) {
+export default function DoorIntro({ onComplete }: { onComplete: () => void }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
-  // Trava a rolagem da página e esconde a barra de scroll enquanto a Intro estiver na tela!
+  // Bloqueio de scroll agressivo (funciona em iOS)
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.height = "100%";
 
-    // Função de limpeza: Devolve a rolagem quando a Intro for desmontada/fechada
     return () => {
       document.body.style.overflow = "auto";
+      document.body.style.position = "static";
+      document.body.style.width = "auto";
+      document.body.style.height = "auto";
     };
   }, []);
 
   const handleSignClick = () => {
-    // Evita duplo clique
     if (isFlipped) return;
 
-    // 1. Gira a placa
     setIsFlipped(true);
 
-    // 2. Espera a placa girar (600ms) + um pequeno respiro (400ms) para ler
     setTimeout(() => {
-      // 3. Começa a dissolver a tela preta
       setIsFadingOut(true);
 
-      // 4. Espera a tela sumir (800ms) para remover o componente e liberar o scroll
       setTimeout(() => {
         setIsHidden(true);
         onComplete();
@@ -35,39 +36,37 @@ export default function Intro({ onComplete }: { onComplete: () => void }) {
     }, 1000);
   };
 
-  // Se já acabou, não renderiza nada
   if (isHidden) return null;
 
   return (
-    // Overlay escuro com fundo embaçado (backdrop-blur)
+    // Colocamos o onClick e o cursor-pointer aqui, na tela inteira!
     <div
-      className={`fixed inset-0 z-9999 flex flex-col items-center justify-center bg-[#1a0f0a]/80 backdrop-blur-sm transition-opacity duration-700 ${
-        isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+      onClick={handleSignClick}
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1a0f0a]/90 backdrop-blur-md transition-all duration-1000 ease-in-out cursor-pointer ${
+        isFadingOut
+          ? "-translate-y-full opacity-0"
+          : "translate-y-0 opacity-100"
       }`}
     >
-      {/* Placa com a perspectiva 3D */}
-      <div className="sign-container" onClick={handleSignClick}>
+      {/* O container não precisa mais do onClick */}
+      <div className="sign-container pointer-events-none">
         <div className="sign-string"></div>
 
         <div className={`sign-flipper ${isFlipped ? "flipped" : ""}`}>
-          {/* FRENTE: Fechado */}
           <div className="sign-face sign-front">
             <span className="text-3xl font-extrabold tracking-widest uppercase">
               Fechado
             </span>
-            <span className="text-sm mt-1 opacity-90 font-medium">
-              Clique para abrir
+            <span className="text-sm mt-1 font-bold">
+              Clique em qualquer lugar
             </span>
           </div>
 
-          {/* VERSO: Aberto */}
           <div className="sign-face sign-back">
             <span className="text-3xl font-extrabold tracking-widest uppercase">
               Aberto
             </span>
-            <span className="text-sm mt-1 opacity-90 font-medium">
-              Seja bem-vindo!
-            </span>
+            <span className="text-sm mt-1 font-bold">Seja bem-vindo!</span>
           </div>
         </div>
       </div>
