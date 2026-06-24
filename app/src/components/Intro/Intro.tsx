@@ -42,7 +42,7 @@ export default function DoorIntro({ onComplete }: { onComplete: () => void }) {
     // Colocamos o onClick e o cursor-pointer aqui, na tela inteira!
     <div
       onClick={handleSignClick}
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1a0f0a]/90 backdrop-blur-md transition-all duration-1000 ease-in-out cursor-pointer ${
+      className={`fixed inset-0 z-9999 flex flex-col items-center justify-center bg-[#1a0f0a]/90 backdrop-blur-md transition-all duration-1000 ease-in-out cursor-pointer ${
         isFadingOut
           ? "-translate-y-full opacity-0"
           : "translate-y-0 opacity-100"

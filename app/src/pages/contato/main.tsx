@@ -125,7 +125,7 @@ function Contato() {
   };
 
   return (
-    <>
+    <div className="w-full max-w-[100vw] overflow-x-hidden">
       <section className="contact other-bg mb-24 flex flex-col items-center justify-center relative">
         <div className="max-w-3xl w-full px-4 flex flex-col items-center">
           <h2 className="text-4xl font-bold text-[#2c1a12] mb-16 flex items-center justify-center">
@@ -322,7 +322,7 @@ function Contato() {
         </div>
       </section>
       <Footer />
-    </>
+    </div>
   );
 }
 

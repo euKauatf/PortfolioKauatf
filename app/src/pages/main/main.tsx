@@ -25,7 +25,7 @@ function MainPage() {
   }, [introFinished]);
 
   return (
-    <>
+    <div className="w-full max-w-[100vw] overflow-x-hidden">
       {!introFinished && (
         <Intro
           onComplete={() => {
@@ -41,11 +41,12 @@ function MainPage() {
           <div className="header-text flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2">
             <h1 className="text-xl md:text-2xl mb-4 header-title w-full flex flex-col items-center md:items-start">
               Olá, mundo! Eu sou
-              <div className="relative mt-2 inline-block max-w-full">
-                {/* Fonte controlada minuciosamente para não dar overflow no celular, ativando background via clique */}
+              {/* Adicionei text-center para garantir alinhamento no celular */}
+              <div className="relative mt-2 inline-block max-w-full text-center md:text-left">
                 <span
                   onClick={() => setIsNameActive(!isNameActive)}
-                  className={`header-title-span block font-extrabold color-special text-[3.25rem] sm:text-[4rem] md:text-6xl lg:text-[5rem] leading-[1.1] px-2 ${isNameActive ? "active-bg" : ""}`}
+                  // ATENÇÃO AQUI: Troquei 'block' por 'inline-block'
+                  className={`header-title-span inline-block font-extrabold color-special text-[3.25rem] sm:text-[4rem] md:text-6xl lg:text-[5rem] leading-[1.1] px-2 ${isNameActive ? "active-bg" : ""}`}
                 >
                   Kauã <br className="md:hidden" /> Fernandes
                 </span>
@@ -336,7 +337,7 @@ function MainPage() {
         </section>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

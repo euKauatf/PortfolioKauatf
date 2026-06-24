@@ -35,7 +35,7 @@ p {
   transition: color 0.2s ease;
   cursor: pointer;
   padding-left: 5px;
-  /* Remove aquele flash azul/cinza padrão ao tocar na tela no celular */
+  padding-right: 5px; /* Adicionado para a caixa ficar simétrica */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -44,12 +44,16 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
+  width: 100%; /* Agora a largura é sempre 100%... */
   height: 100%;
   background-color: #452829;
   z-index: -1;
-  transition: width 0.4s ease-in-out;
   border-radius: 6px;
+
+  /* ...mas usamos o transform para encolher a caixa a zero. Isso evita bugs no celular! */
+  transform: scaleX(0);
+  transform-origin: left; /* Faz a animação crescer da esquerda pra direita */
+  transition: transform 0.4s ease-in-out;
 }
 
 /* O hover SÓ vai funcionar em dispositivos com Mouse de verdade (Desktop) */
@@ -58,7 +62,7 @@ p {
     color: #dab39e;
   }
   .header-title-span:hover::before {
-    width: 100%;
+    transform: scaleX(1); /* Expande a caixa */
   }
 }
 
@@ -67,7 +71,7 @@ p {
   color: #dab39e;
 }
 .header-title-span.active-bg::before {
-  width: 100%;
+  transform: scaleX(1); /* Expande a caixa no clique */
 }
 /* ------------------------ */
 
@@ -341,8 +345,4 @@ body {
   background-color: #f6e4d3;
   position: relative;
   z-index: 0;
-}
-
-.header-title-span:hover::before {
-  width: 100%; /* Isso garante que a caixa marrom cubra o Fernandes inteiro */
 }
