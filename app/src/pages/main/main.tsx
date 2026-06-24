@@ -8,6 +8,7 @@ import pic1 from "../../assets/images/pic1.jpeg";
 import Footer from "../../components/footer/footer";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import planejai from "../../assets/images/planejaai.webp";
 
 function MainPage() {
   const [introFinished, setIntroFinished] = useState(() => {
@@ -215,18 +216,19 @@ function MainPage() {
               {/* PROJETO 1 */}
               <div className="project-card flex flex-col group">
                 <div className="project-img-placeholder overflow-hidden">
-                  <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    N/A
-                  </span>
+                  <img
+                    src={planejai}
+                    className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    alt="Projeto PlanejaIA"
+                  />
                 </div>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
-                  <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
-                    Projeto 1
+                  <h3 className="text-3xl text-center md:text-xl font-bold text-[#2c1a12] mb-3">
+                    Planeja.AI
                   </h3>
-                  <p className="geist text-[#4a3732] mb-6 flex-1 text-lg md:text-sm lg:text-base leading-relaxed">
-                    No momento, o projeto ainda não está disponível! Fique por
-                    dentro das atualizações que já já irá sair, fresquinho do
-                    forno!
+                  <p className="geist text-[#4a3732] mb-6 flex-1 text-center text-lg md:text-sm lg:text-base leading-relaxed">
+                    Um site que faz uso da inteligência artificial para calcular
+                    a melhor forma de se planejar para uma meta traçada!
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 mb-8 md:mb-6">
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
@@ -235,9 +237,13 @@ function MainPage() {
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
                       TypeScript
                     </span>
+                    <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
+                      IA
+                    </span>
                   </div>
                   <a
-                    href="#"
+                    href="https://planejaai-kauatf.vercel.app/"
+                    target="_blank"
                     className="mt-auto flex items-center justify-center md:justify-start gap-2 text-[#2c1a12] font-bold text-xl md:text-base hover:opacity-70 transition-opacity"
                   >
                     Ver projeto <span>&rarr;</span>
