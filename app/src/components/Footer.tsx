@@ -1,4 +1,5 @@
-import "./footer.css";
+import "@/styles/components/Footer.css";
+import { socialLinks } from "../data/socialLinks";
 
 function Footer() {
   return (
@@ -16,7 +17,7 @@ function Footer() {
         {/* A div dos links também força a cor clara */}
         <div className="flex gap-6 text-sm font-bold">
           <a
-            href="https://www.instagram.com/kauatf_/?hl=pt"
+            href={socialLinks.instagram}
             target="_blank"
             rel="noreferrer"
             className="hover:-translate-y-0.5 hover:scale-105 transition-all"
@@ -24,7 +25,7 @@ function Footer() {
             Instagram
           </a>
           <a
-            href="https://github.com/euKauatf"
+            href=""
             target="_blank"
             rel="noreferrer"
             className="hover:-translate-y-0.5 hover:scale-105 transition-all"
@@ -32,7 +33,7 @@ function Footer() {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/eukauatf/"
+            href={socialLinks.github}
             target="_blank"
             rel="noreferrer"
             className="hover:-translate-y-0.5 hover:scale-105 transition-all"

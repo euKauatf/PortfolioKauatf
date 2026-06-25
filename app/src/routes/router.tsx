@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Pages
-import Home from "../pages/main/main";
-import Pessoal from "../pages/pessoal/pessoal";
-import Contato from "../pages/contato/main";
+import Home from "../pages/Main";
+import Pessoal from "../pages/Pessoal";
+import Contato from "../pages/Contato";
 import NotFound from "../pages/NotFound";
 
 // Componente que executa o redirecionamento corretamente

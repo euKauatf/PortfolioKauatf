@@ -3,10 +3,11 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
 // Styles
-import "./styles/layouts/global.css";
+import "./styles/global.css";
 
 // Components
-import Navbar from "./components/navbar/navbar";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // Router
 import AppRouter from "./routes/router";
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Navbar />
       <AppRouter />
+      <Footer />
     </BrowserRouter>
   </StrictMode>,
 );

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../../pages/main/main.css";
+import "@/styles/pages/Main.css";
 
 export default function DoorIntro({ onComplete }: { onComplete: () => void }) {
   const [isFlipped, setIsFlipped] = useState(false);

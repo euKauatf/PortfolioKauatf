@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import "./main.css";
-import Footer from "../../components/footer/footer";
+import "@/styles/pages/Contato.css";
 
 function Contato() {
   // Estado para o Pop-up de cópia do e-mail
@@ -321,7 +320,6 @@ function Contato() {
           Pedido feito com sucesso!
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

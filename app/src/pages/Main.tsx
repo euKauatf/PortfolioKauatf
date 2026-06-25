@@ -1,16 +1,16 @@
 import { useState } from "react";
-import "./main.css";
-import Intro from "../../components/Intro/Intro";
-import video from "../../assets/videos/window.webm";
-import Linkedin from "../../assets/images/linkedin.svg?react";
-import Github from "../../assets/images/github.svg?react";
-import pic1 from "../../assets/images/pic1.webp";
-import Footer from "../../components/footer/footer";
+import "@/styles/pages/Main.css";
+import { socialLinks } from "../data/socialLinks";
+import Intro from "../components/Intro";
+import video from "@/assets/videos/window.webm";
+import Linkedin from "@/assets/images/linkedin.svg?react";
+import Github from "@/assets/images/github.svg?react";
+import pic1 from "@/assets/images/pic1.webp";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import planejai from "../../assets/images/planejaai.webp";
-import kauaffe from "../../assets/images/kauaffe.webp";
-import otavianotransportes from "../../assets/images/otaviano.webp";
+import planejai from "@/assets/images/planejaai.webp";
+import kauaffe from "@/assets/images/kauaffe.webp";
+import otavianotransportes from "@/assets/images/otaviano.webp";
 
 function MainPage() {
   const [introFinished, setIntroFinished] = useState(() => {
@@ -71,7 +71,7 @@ function MainPage() {
 
               <div className="flex gap-4 w-full md:w-auto">
                 <a
-                  href="https://github.com/euKauatf"
+                  href={socialLinks.github}
                   target="_blank"
                   rel="noreferrer"
                   className="px-4 py-4 md:px-6 md:py-3 group flex flex-1 justify-center items-center border-2 rounded-sm btn hover-scale-p transition-all text-lg md:text-base"
@@ -80,7 +80,7 @@ function MainPage() {
                   GitHub
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/eukauatf/"
+                  href={socialLinks.linkedin}
                   target="_blank"
                   rel="noreferrer"
                   className="px-4 py-4 md:px-6 md:py-3 group flex flex-1 justify-center items-center border-2 btn hover-scale-p transition-all text-lg md:text-base"
@@ -305,13 +305,18 @@ function MainPage() {
               {/* PROJETO 3 */}
               <div className="project-card flex flex-col group">
                 <div className="project-img-placeholder overflow-hidden">
-                  <div className="project-img-placeholder overflow-hidden">
-                    <img
-                      src={otavianotransportes}
-                      className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      alt="Projeto Otaviano"
-                    />
-                  </div>
+                  <a
+                    href="https://otaviano-transportes.onrender.com/"
+                    target="_blank"
+                  >
+                    <div className="project-img-placeholder overflow-hidden">
+                      <img
+                        src={otavianotransportes}
+                        className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        alt="Projeto Otaviano"
+                      />
+                    </div>
+                  </a>
                 </div>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
@@ -331,7 +336,8 @@ function MainPage() {
                     </span>
                   </div>
                   <a
-                    href="#"
+                    href="https://otaviano-transportes.onrender.com/"
+                    target="_blank"
                     className="mt-auto flex items-center justify-center md:justify-start gap-2 text-[#2c1a12] font-bold text-xl md:text-base hover:opacity-70 transition-opacity"
                   >
                     Ver projeto <span>&rarr;</span>
@@ -364,7 +370,6 @@ function MainPage() {
           </div>
         </section>
       </div>
-      <Footer />
     </div>
   );
 }

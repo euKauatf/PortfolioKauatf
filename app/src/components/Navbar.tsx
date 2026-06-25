@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import Leaf from "../../assets/images/leaf.svg?react";
-import "./navbar.css";
+import Leaf from "@/assets/images/leaf.svg?react";
+import "@/styles/components/Navbar.css";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
