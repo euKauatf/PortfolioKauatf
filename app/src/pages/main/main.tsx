@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import planejai from "../../assets/images/planejaai.webp";
 import kauaffe from "../../assets/images/kauaffe.webp";
+import otavianotransportes from "../../assets/images/otaviano.webp";
 
 function MainPage() {
   const [introFinished, setIntroFinished] = useState(() => {
@@ -176,6 +177,9 @@ function MainPage() {
                         <span className="tag-stack text-sm md:text-base">
                           CSS
                         </span>
+                        <span className="tag-stack text-sm md:text-base">
+                          Firebase
+                        </span>
                         <span className="tag-stack text-sm md:text-base border-dashed bg-transparent text-[#2c1a12] border-[#2c1a12]">
                           Express (Em breve)
                         </span>
@@ -192,6 +196,9 @@ function MainPage() {
                         </span>
                         <span className="tag-stack text-sm md:text-base">
                           CSS
+                        </span>
+                        <span className="tag-stack text-sm md:text-base">
+                          Firebase
                         </span>
                         <span className="tag-stack text-sm md:text-base border-dashed bg-transparent text-[#2c1a12] border-[#2c1a12]">
                           Express (Em breve)
@@ -294,25 +301,29 @@ function MainPage() {
               {/* PROJETO 3 */}
               <div className="project-card flex flex-col group">
                 <div className="project-img-placeholder overflow-hidden">
-                  <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    N/A
-                  </span>
+                  <div className="project-img-placeholder overflow-hidden">
+                    <img
+                      src={otavianotransportes}
+                      className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      alt="Projeto Otaviano"
+                    />
+                  </div>
                 </div>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
-                    Projeto 3
+                    Otaviano Transportes
                   </h3>
                   <p className="geist text-[#4a3732] mb-6 flex-1 text-lg md:text-sm lg:text-base leading-relaxed">
-                    No momento, o projeto ainda não está disponível! Fique por
-                    dentro das atualizações que já já irá sair, fresquinho do
-                    forno!
+                    O meu primeiro site profissional, feito para uma
+                    transportadora que precisava enviar suas cotações e rastreio
+                    de frotas para os clientes e outros via e-mail.
                   </p>
                   <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-2 mb-8 md:mb-6">
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
-                      Javascript
+                      React
                     </span>
                     <span className="text-base md:text-xs lg:text-sm font-bold bg-[#d29c73] text-[#2c1a12] px-3 py-1.5 rounded">
-                      CSS
+                      TypeScript
                     </span>
                   </div>
                   <a
