@@ -16,6 +16,14 @@ function Footer() {
         {/* A div dos links também força a cor clara */}
         <div className="flex gap-6 text-sm font-bold">
           <a
+            href="https://www.instagram.com/kauatf_/?hl=pt"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:-translate-y-0.5 hover:scale-105 transition-all"
+          >
+            Instagram
+          </a>
+          <a
             href="https://github.com/euKauatf"
             target="_blank"
             rel="noreferrer"

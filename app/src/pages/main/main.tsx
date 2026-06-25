@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./main.css";
 import Intro from "../../components/Intro/Intro";
-import video from "../../assets/videos/window.mp4";
+import video from "../../assets/videos/window.webm";
 import Linkedin from "../../assets/images/linkedin.svg?react";
 import Github from "../../assets/images/github.svg?react";
-import pic1 from "../../assets/images/pic1.jpeg";
+import pic1 from "../../assets/images/pic1.webp";
 import Footer from "../../components/footer/footer";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -223,13 +223,15 @@ function MainPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* PROJETO 1 */}
               <div className="project-card flex flex-col group">
-                <div className="project-img-placeholder overflow-hidden">
-                  <img
-                    src={planejai}
-                    className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    alt="Projeto PlanejaIA"
-                  />
-                </div>
+                <a href="https://planejaai-kauatf.vercel.app/" target="_blank">
+                  <div className="project-img-placeholder overflow-hidden">
+                    <img
+                      src={planejai}
+                      className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      alt="Projeto PlanejaIA"
+                    />
+                  </div>
+                </a>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl text-center md:text-xl font-bold text-[#2c1a12] mb-3">
                     Planeja.AI
@@ -261,13 +263,15 @@ function MainPage() {
 
               {/* PROJETO 2 */}
               <div className="project-card flex flex-col group">
-                <div className="project-img-placeholder overflow-hidden">
-                  <img
-                    src={kauaffe}
-                    className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    alt="Projeto kauaffe"
-                  />
-                </div>
+                <a href="https://kauaffe.vercel.app/" target="_blank">
+                  <div className="project-img-placeholder overflow-hidden">
+                    <img
+                      src={kauaffe}
+                      className="w-full rounded-t h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      alt="Projeto kauaffe"
+                    />
+                  </div>
+                </a>
                 <div className="p-8 md:p-6 flex flex-col flex-1 text-center md:text-left">
                   <h3 className="text-3xl md:text-xl font-bold text-[#2c1a12] mb-3">
                     Kauaffè
